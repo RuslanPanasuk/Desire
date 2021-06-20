@@ -17,7 +17,7 @@ function browsersync() {
 }
 
 function cleanDist() {
-  return del('dist')
+  return del('dist');
 }
 
 function images() {
@@ -35,7 +35,7 @@ function images() {
         })
       ]
     ))
-    .pipe(dest('dist/images'))
+    .pipe(dest('dist/images'));
 }
 
 function scripts() {
@@ -43,12 +43,13 @@ function scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/slick-carousel/slick/slick.js',
     'node_modules/mixitup/dist/mixitup.js',
+    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 
 
@@ -61,7 +62,7 @@ function styles() {
         grid: true
       }))
       .pipe(dest('app/css'))
-      .pipe(browserSync.stream())
+      .pipe(browserSync.stream());
 }
 
 function build() {
@@ -71,7 +72,7 @@ function build() {
     'app/js/main.min.js',
     'app/*.html'
   ], {base: 'app'})
-    .pipe(dest('dist'))
+    .pipe(dest('dist'));
 }
 
 function watching() {
